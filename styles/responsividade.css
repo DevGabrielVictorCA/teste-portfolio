@@ -1,0 +1,156 @@
+:root {
+    --primary-color: #9e4301;
+    --secundary-color: #331805;
+    --highlighted-font: "Press Start 2P", system-ui;
+    --main-font: "Raleway", sans-serif;
+}
+
+/* Responsividade */
+
+@media screen and (max-width: 950px) {
+    .interface{ flex-direction: column; }
+
+    header{
+        flex-direction: row;
+        padding: 3% 5% 0;
+        position: fixed;
+        width: 100%;
+       }
+       .container-logo{
+            display: flex;
+            justify-content: start;
+            flex: 80%;
+            width: 100%;
+       }
+       .container-logo img{
+            margin-left: 0;
+            width: auto;
+            max-height: 55px;
+            object-fit: contain;
+       }
+       .nav-list{
+            flex: 20%;
+            position: relative;
+            display: flex;
+            align-self: center;
+            text-align: right;
+       }
+       .btn-menu{
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            width: 100%;
+       }
+       .abrir-menu{ display: flex;}
+
+       .nav-items{
+            opacity: 0;
+            flex-direction: column;
+            font-family: var(--highlighted-font);
+            list-style-type: none;
+            text-align: left;
+            position: absolute;
+            top: 115%;
+            right: -30%;
+            height: 100vh;
+            backdrop-filter: blur(5px);
+            transition: all .3s ease-in-out;
+            clip-path: circle(10px at 90% -15%);
+            z-index: 100;
+       }
+    
+       .nav-items.active{
+            opacity: 1;
+            clip-path: circle(1500px at 90% -15%);
+       }
+       .nav-items li{ padding: 10px 50px; }
+
+       .nav-items li a{
+            display: block;
+            color: var(--secundary-color);
+            text-decoration: none;
+            padding: 16px 5%;
+            font-size: 12px;
+            text-indent: 20px;
+            transition: all .3s ease-in-out;
+       }
+       .nav-items li a::before{
+            display: none;
+            content: "*";
+            padding-right: 5%;
+       }
+       .nav-items li a:hover::before{ display: inline; }
+       
+       .nav-items .links-sociais{
+        display: flex;
+        justify-content: flex-end;
+        text-decoration: none;
+        padding: 2px;
+        padding-right: 10%;
+        gap: 5px;
+        cursor: pointer;
+        padding-right: 5%;   
+    }
+    .nav-items .links-sociais ion-icon{
+        font-size: 43px;
+        padding: 10px;
+        color: var(--secundary-color);
+        transition: all .3s ease-in-out;
+    }
+    .nav-items.links-sociais ion-icon:hover{
+        transform: scale(110%);
+        color: var(--primary-color);
+    }
+
+    /* Seção 1 */
+
+    .img-perfil, .status-perfil{ margin: 0;}
+    
+    .img-perfil{ padding-top: 5%;}
+    .status-perfil h1, h3{ 
+        font-size: 13px; 
+        line-height: 20px; 
+        padding-top: 10px;
+    }
+    .status-perfil h2{ 
+        font-size: 11px; 
+        padding-bottom: 0;
+        line-height: 18px;
+    }
+    
+    .status-perfil h2::after{ content: '---------' ; }
+
+    .status-perfil h3 span, #texto-perfil { 
+        font-size: 16px; 
+        padding-bottom: 10px;
+    }
+    .section-aventureiro .links-sociais{ display: none; }
+    #texto-perfil{ 
+        padding-top: 10px;
+        padding-left: 0; 
+        text-align: justify; 
+    }
+}
+@media screen and (max-width: 500px){
+    .abrir-menu{ font-size: 10vw; }
+    section{ padding-top: 15%; }
+    /* Seção 1 */
+    .section-aventureiro{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .container-logo { padding-bottom: 0;}
+    .img-perfil img { height: 35vh; }
+    .status-perfil{ padding-left: 0;}
+    
+    .status-perfil h1, h3{ 
+        font-size: 14px; 
+        line-height: 10px; 
+        padding-top: 10px;
+    }
+    
+    .status-perfil h2{ font-size: 12px; }
+    .status-perfil h2::after{ content: '-------------------------' ; }
+    .status-perfil h3 span, #texto-perfil { font-size: 15px; line-height: 15px; padding-bottom: 35px;}
+}
